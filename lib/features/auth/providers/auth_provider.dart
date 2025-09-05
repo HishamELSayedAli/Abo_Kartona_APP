@@ -16,7 +16,8 @@ class AuthProvider with ChangeNotifier {
 
   void signIn(String email, String password) {
     _currentUser = repository.signIn(email, password);
-    notifyListeners();
+    notifyListeners(); // updating for widgets
+  
   }
 
   void signUp(String name, String email, String password) {

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart'; 
 import 'package:e_commerce_app/features/auth/views/login.dart';
 import 'package:e_commerce_app/features/products/views/product_screen.dart';
 import 'package:e_commerce_app/core/routing/app_router.dart';
+import 'package:e_commerce_app/features/auth/providers/auth_provider.dart';
+
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,6 +18,8 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+
     final List<Widget> pages = [
       const Center(child: Text("Home Page Body")),
       const ProductsScreen(), // ✅ products screen
@@ -30,14 +35,28 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
         leading: const Icon(Icons.person_outline),
         actions: [
+          // زرار الـ Cart
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, AppRouter.cart); // 👈 open cart
+                Navigator.pushNamed(context, AppRouter.cart);
               },
               child: const Icon(Icons.shopping_cart_outlined),
             ),
+          ),
+
+          // زرار الـ Logout
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: "Logout",
+            onPressed: () {
+              authProvider.logout(); // 👈 هنا استدعينا الـ function بتاعتك
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginView()),
+              );
+            },
           ),
         ],
       ),

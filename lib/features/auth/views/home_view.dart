@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:realm/realm.dart';
 import '../models/user_model.dart';
 
-class UsersHomeView extends StatefulWidget {
+class UsersHomeView extends StatefulWidget { //معناه إن الصفحة دي بتتغير (dynamic) لو حصل أي تغيير في البيانات.
   const UsersHomeView({super.key});
 
   @override
