@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:e_commerce_app/features/auth/views/login.dart';
 import 'package:e_commerce_app/features/products/views/product_screen.dart';
 import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:e_commerce_app/features/auth/providers/auth_provider.dart';
 
 
-class HomeView extends StatefulWidget {
+class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  ConsumerState<HomeView> createState() => _HomeViewState();
+  
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends ConsumerState<HomeView>  {
   int _currentIndex = 0;
 
   @override
-  Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+   Widget build(BuildContext context) {
+    final authProvider = ref.read(authProviderProvider.notifier); 
 
     final List<Widget> pages = [
       const Center(child: Text("Home Page Body")),

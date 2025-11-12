@@ -1,16 +1,18 @@
 import 'package:e_commerce_app/features/auth/views/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
 
-
-class LoginView extends StatelessWidget {
+class LoginView extends ConsumerWidget {
   const LoginView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
+
+    final authNotifier = ref.read(authProviderProvider.notifier);
+    final authState = ref.watch(authProviderProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Sign In")),
@@ -32,11 +34,13 @@ class LoginView extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                context.read<AuthProvider>().signIn(
-                      emailController.text,
-                      passwordController.text,
-                    );
-                if (context.read<AuthProvider>().isLoggedIn) {
+                authNotifier.signIn(
+                  emailController.text,
+                  passwordController.text,
+                );
+
+                // ✅ نتحقق من الحالة
+                if (authState.isLoggedIn) {
                   Navigator.pushReplacementNamed(context, "/");
                 }
               },

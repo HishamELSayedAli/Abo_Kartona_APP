@@ -4,15 +4,17 @@ import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:realm/realm.dart';
 import 'features/auth/models/user_model.dart';
 
-// Realm instance accessible globally
 late final Realm realm;
 
 void main() {
-  // Initialize Realm before runApp
   final config = Configuration.local([UserModel.schema]);
   realm = Realm(config);
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,10 +23,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shopzy',
+      title: 'abo-Kartona',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: AppRouter.home,
+
+      // ✅ استخدم builder لكن بدون ProviderScope تاني
+      builder: (context, child) {
+        // هنا ممكن تضيف شوية widgets عامة زي Directionality أو Theme لو حبيت
+        return child!;
+      },
     );
   }
 }

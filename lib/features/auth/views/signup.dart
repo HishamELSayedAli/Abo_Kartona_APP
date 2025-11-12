@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends ConsumerWidget {
   const SignUpView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final nameController = TextEditingController();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
+
+    final auth = ref.read(authProviderProvider.notifier); // ✅
 
     return Scaffold(
       appBar: AppBar(title: const Text("Sign Up")),
@@ -18,9 +20,15 @@ class SignUpView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(controller: nameController, decoration: const InputDecoration(labelText: "Full Name")),
+            TextField(
+              controller: nameController,
+              decoration: const InputDecoration(labelText: "Full Name"),
+            ),
             const SizedBox(height: 16),
-            TextField(controller: emailController, decoration: const InputDecoration(labelText: "Email")),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(labelText: "Email"),
+            ),
             const SizedBox(height: 16),
             TextField(
               controller: passwordController,
@@ -30,11 +38,11 @@ class SignUpView extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                context.read<AuthProvider>().signUp(
-                      nameController.text,
-                      emailController.text,
-                      passwordController.text,
-                    );
+                auth.signUp(
+                  nameController.text,
+                  emailController.text,
+                  passwordController.text,
+                );
                 Navigator.pushReplacementNamed(context, "/");
               },
               child: const Text("Sign Up"),
