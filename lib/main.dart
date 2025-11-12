@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: AppRouter.home,
 
-      // ✅ استخدم builder لكن بدون ProviderScope تاني
+      
       builder: (context, child) {
-        // هنا ممكن تضيف شوية widgets عامة زي Directionality أو Theme لو حبيت
+        
         return child!;
       },
     );

@@ -11,7 +11,7 @@ class SignUpView extends ConsumerWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    final auth = ref.read(authProviderProvider.notifier); // ✅
+    final auth = ref.read(authProviderProvider.notifier); 
 
     return Scaffold(
       appBar: AppBar(title: const Text("Sign Up")),
