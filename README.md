@@ -36,9 +36,8 @@ A simple **E-Commerce application** built with **Flutter** & **Riverpod** for st
 ## 📂 Project Structure
 
 
- core/
+     core/
         config/
-        
         errors/
         network/
         routing/
