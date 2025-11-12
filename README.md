@@ -35,54 +35,61 @@ A simple **E-Commerce application** built with **Flutter** & **Riverpod** for st
 
 ## 📂 Project Structure
 
->>>>>>> .
-└── lib/
-    ├── core/
-    │   ├── config/
-    │   ├── errors/
-    │   ├── network/
-    │   └── routing/
-    │       └── app_router.dart
-    ├── features/
-    │   ├── auth/ 
-    │   │   ├── models/ 
-    │   │   │   ├── user_model.dart 
-    │   │   │   └── user_model.realm.dart 
-    │   │   ├── providers/ 
-    │   │   │   └── auth_provider.dart 
-    │   │   ├── repository/ 
-    │   │   │   └── auth_repository.dart 
-    │   │   └── views/ 
-    │   │       ├── signup.dart 
-    │   │       └── login.dart
-    │   ├── cart/
-    │   │   ├── models/ 
-    │   │   │   └── cart_model.dart 
-    │   │   ├── providers/ 
-    │   │   │   └── cart_provider.dart 
-    │   │   ├── repository/ 
-    │   │   │   └── .. 
-    │   │   ├── views/ 
-    │   │   └── cart_screen.dart 
-    │   ├── orders/
-    │   │   └── models/ 
-    │   │       ├── order_model.dart
-    │   │       ├── providers/ 
-    │   │       │   └── order_provider.dart
-    │   │       ├── repository/ 
-    │   │       │   └── .. 
-    │   │       └── views/ 
-    │   │           └── order_history_screen.dart
-    │   └── products/ 
-    │       ├── models/ 
-    │       │   └── product_model.dart 
-    │       ├── providers/ 
-    │       │   └── product_providers.dart 
-    │       ├── repository/ 
-    │       │   └── product_repository.dart 
-    │       ├── views/ 
-    │       │   ├── product_details_view.dart 
-    │       │   └── product_screen.dart
-    │       └── -home.dart
-    ├── shared/
-    └── main.dart 
+
+ core/
+        config/
+        
+        errors/
+        network/
+        routing/
+          app_router.dart
+    
+    features/
+      
+       auth/ 
+            models/ 
+                user_model.dart 
+               user_model.realm.dart 
+            providers/ 
+                auth_provider.dart 
+            repository/ 
+                auth_repository.dart 
+            views/ 
+                signup.dart 
+                login.dart
+      cart/
+          models/ 
+             cart_model.dart 
+          providers/ 
+              cart_provider.dart 
+          repository/ 
+             .. 
+          views/ 
+          cart_screen.dart 
+      
+      orders/
+        models/ 
+             order_model.dart
+          providers/ 
+              order_provider.dart
+          repository/ 
+             .. 
+          views/ 
+            order_history_screen.dart
+        
+      
+      
+      
+     products/ 
+           models/ 
+               product_model.dart 
+          providers/ 
+                product_providers.dart 
+          repository/ 
+              product_repository.dart 
+          views/ 
+              product_details_view.dart 
+              product_screen.dart
+      -home.dart
+    shared/
+    main.dart 
