@@ -92,3 +92,37 @@ A simple **E-Commerce application** built with **Flutter** & **Riverpod** for st
       -home.dart
     shared/
     main.dart 
+
+
+
+
+    ⚙️ Getting Started
+    
+
+Clone the repository:
+
+    git clone [YOUR_REPOSITORY_URL]
+
+
+Navigate to the project directory:
+
+    cd [your_project_name]
+
+
+Install dependencies:
+
+    flutter pub get
+
+
+Generate Realm models:
+
+  Realm requires code generation for models.
+    <!-- end list -->
+
+    flutter pub run build_runner build --delete-conflicting-outputs
+
+
+  Run the application:
+
+    flutter run
+
