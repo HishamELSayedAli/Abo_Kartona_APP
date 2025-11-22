@@ -94,9 +94,8 @@ A simple **E-Commerce application** built with **Flutter** & **Riverpod** for st
     main.dart 
 
 
-
-
-    ⚙️ Getting Started
+---
+⚙️ Getting Started
     
 
 Clone the repository:
