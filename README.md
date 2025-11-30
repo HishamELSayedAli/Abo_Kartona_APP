@@ -125,3 +125,6 @@ Generate Realm models:
 
     flutter run
 
+---
+
+> **Developed by [HishamELSayedAli](https://github.com/HishamELSayedAli)**
